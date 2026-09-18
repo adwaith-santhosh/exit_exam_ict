@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Make a Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {background: linear-gradient(135deg,#ffffff 0%,#eef2f7 100%);} 
+      .container {max-width:900px}
+      .form-card {box-shadow: 0 6px 24px rgba(34,41,47,0.08);}
+      label {font-weight:600}
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="card form-card p-4">
+        <h3 class="mb-3">Enter company metrics</h3>
+        <form method="post" action="/predict">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Company Type</label>
+              <input name="company_type" class="form-control" placeholder="e.g., public, private, subsidiary">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Is Standalone Entity</label>
+              <select name="is_standalone_entity" class="form-select">
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+              </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>Employees</label>
+              <input name="employees" type="number" step="1" class="form-control" placeholder="e.g., 250">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Employees Year</label>
+              <input name="employees_year" class="form-control" placeholder="e.g., 2023">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Revenue Currency</label>
+              <input name="revenue_currency" class="form-control" placeholder="e.g., USD">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>Revenue Year (target year)</label>
+              <input name="revenue_year" class="form-control" placeholder="e.g., 2025">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Net Income</label>
+              <input name="net_income" type="number" step="0.01" class="form-control" placeholder="e.g., 1200000.00">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Net Income Currency</label>
+              <input name="net_income_currency" class="form-control" placeholder="e.g., USD">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>Net Income Year</label>
+              <input name="net_income_year" class="form-control" placeholder="e.g., 2024">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Market Cap</label>
+              <input name="market_cap" type="number" step="0.01" class="form-control" placeholder="e.g., 50000000">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Market Cap Currency</label>
+              <input name="market_cap_currency" class="form-control" placeholder="e.g., USD">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>Market Cap Date</label>
+              <input name="market_cap_date" class="form-control" placeholder="e.g., 2023-12-31 or 2023">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Legal Units Count</label>
+              <input name="legal_units_count" type="number" step="1" class="form-control" placeholder="e.g., 3">
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Direct Subsidiaries Count</label>
+              <input name="direct_subsidiaries_count" type="number" step="1" class="form-control" placeholder="e.g., 2">
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>Max Hierarchy Depth</label>
+              <input name="max_hierarchy_depth" type="number" step="1" class="form-control" placeholder="e.g., 2">
+            </div>
+
+          </div>
+
+          <div class="d-flex gap-2 mt-3">
+            <a class="btn btn-secondary" href="/">Back</a>
+            <button class="btn btn-primary" type="submit">Predict Revenue</button>
+          </div>
+        </form>
+      </div>
+
+      <footer class="pt-4 text-muted">Provide realistic numeric inputs for best results.</footer>
+    </div>
+  </body>
+</html>
